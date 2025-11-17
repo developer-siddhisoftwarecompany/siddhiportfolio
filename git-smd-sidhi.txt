@@ -1,0 +1,110 @@
+Microsoft Windows [Version 10.0.26100.6899]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\pc\Desktop\siddhiweb>git status
+fatal: not a git repository (or any of the parent directories): .git
+
+C:\Users\pc\Desktop\siddhiweb>git init
+Initialized empty Git repository in C:/Users/pc/Desktop/siddhiweb/.git/
+
+C:\Users\pc\Desktop\siddhiweb>git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .hintrc
+        .vscode/
+        demo.html
+        images/
+        index.html
+        style.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\pc\Desktop\siddhiweb>git remote add origin https://github.com/developer-siddhisoftwarecompany/siddhiportfolio.git
+
+C:\Users\pc\Desktop\siddhiweb>git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .hintrc
+        .vscode/
+        demo.html
+        images/
+        index.html
+        style.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\pc\Desktop\siddhiweb>git add .
+warning: in the working copy of '.hintrc', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'demo.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'images/arrow-outlined.svg', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'images/js-icon.svg', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'images/logo.svg', LF will be replaced by CRLF the next time Git touches it
+
+C:\Users\pc\Desktop\siddhiweb>git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   .hintrc
+        new file:   .vscode/settings.json
+        new file:   demo.html
+        new file:   images/4x.jpg
+        new file:   images/4xx.png
+        new file:   images/Ellipse 1.png
+        new file:   images/Group 1.png
+        new file:   images/Group 1.svg
+        new file:   images/arrow-outlined.svg
+        new file:   images/img1.jpg
+        new file:   images/img2.jpg
+        new file:   images/img3.jpg
+        new file:   images/img4.png
+        new file:   images/js-icon.svg
+        new file:   images/logo.svg
+        new file:   images/x.png
+        new file:   index.html
+        new file:   style.css
+
+
+C:\Users\pc\Desktop\siddhiweb>git commit -m "hello"
+[main (root-commit) 6e4a35a] hello
+ 18 files changed, 1733 insertions(+)
+ create mode 100644 .hintrc
+ create mode 100644 .vscode/settings.json
+ create mode 100644 demo.html
+ create mode 100644 images/4x.jpg
+ create mode 100644 images/4xx.png
+ create mode 100644 images/Ellipse 1.png
+ create mode 100644 images/Group 1.png
+ create mode 100644 images/Group 1.svg
+ create mode 100644 images/arrow-outlined.svg
+ create mode 100644 images/img1.jpg
+ create mode 100644 images/img2.jpg
+ create mode 100644 images/img3.jpg
+ create mode 100644 images/img4.png
+ create mode 100644 images/js-icon.svg
+ create mode 100644 images/logo.svg
+ create mode 100644 images/x.png
+ create mode 100644 index.html
+ create mode 100644 style.css
+
+C:\Users\pc\Desktop\siddhiweb>git push origin main
+Enumerating objects: 20, done.
+Counting objects: 100% (20/20), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (18/18), done.
+Writing objects: 100% (20/20), 53.32 MiB | 2.75 MiB/s, done.
+Total 20 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/developer-siddhisoftwarecompany/siddhiportfolio.git
+ * [new branch]      main -> main
+
+C:\Users\pc\Desktop\siddhiweb>^A
