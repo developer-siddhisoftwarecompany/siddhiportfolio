@@ -47,6 +47,7 @@ header {
     display: flex;
     list-style: none;
 }
+
 .nav-links a {
     color: white;
     text-decoration: none;
@@ -78,7 +79,7 @@ header {
 
 .hero h1 {
     background: linear-gradient(177.4deg rgba(255, 255, 255, 0.3) 86.35%);
-    margin-top: -40px;  
+    margin-top: -40px;
     margin-bottom: 20px;
     font-weight: 600;
     font-family: Montserrat;
@@ -91,12 +92,12 @@ header {
 
 .hero p {
     font-family: Montserrat;
-font-weight: 400;
-font-style: Regular;
-font-size: 26px;
-line-height: 100%;
-letter-spacing: 0%;
-text-align: center;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 26px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
 
 }
 
@@ -129,11 +130,12 @@ text-align: center;
     outline: none;
 }
 
-.arrow-icon img{
+.arrow-icon img {
     width: 16px;
     height: 16px;
     position: absolute;
 }
+
 .horizontal-scroll {
     width: 100%;
     max-width: 900px;
@@ -397,10 +399,14 @@ p {
     line-height: 30px;
 }
 
+.foot-inn h3 {
+    font-size: 30px;
+}
+
 .end-footer {
     display: flex;
-    justify-content: center;
-    gap: 470px;
+    justify-content: space-between;
+    gap: 320px;
     align-items: center;
     margin-bottom: 70px;
     margin-top: 30px;
@@ -409,6 +415,45 @@ p {
 
 .quote-box {
     display: none;
+}
+
+
+.scroll-wrapper {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 30px 0;
+}
+
+.scroll-content {
+    display: inline-flex;
+    align-items: center;
+    gap: 60px;
+    animation: scroll 12s linear infinite;
+}
+
+.item {
+    color: #cfd3e2;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.95;
+    padding: 8px 20px;
+    border-radius: 50px;
+    backdrop-filter: blur(6px);
+}
+
+/* Infinity animation */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 @media only screen and (max-width: 600px) {
