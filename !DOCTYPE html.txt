@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tejendra Purohit | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal portfolio website of Tejendra Purohit" />
+
+  <!-- ====== BASIC STYLES ====== -->
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #0b1120;
+      --accent: #22d3ee;
+      --accent-soft: rgba(34, 211, 238, 0.1);
+      --accent-strong: #06b6d4;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border-soft: rgba(148, 163, 184, 0.25);
+      --card-radius: 18px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.75);
+      --nav-h: 70px;
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #020617 40%, #000);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ====== LAYOUT ====== */
+    .wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
+
+    /* ====== NAVBAR ====== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.95),
+        rgba(15, 23, 42, 0.7),
+        transparent
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top left, #22d3ee 0, #0f172a 40%, #020617 100%);
+      box-shadow: 0 0 25px rgba(34, 211, 238, 0.4);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #e0f2fe;
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-title-main {
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-title-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(to right, var(--accent), var(--accent-strong));
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      font-size: 0.85rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: radial-gradient(circle at top, var(--accent-soft), transparent 70%);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      cursor: pointer;
+    }
+
+    .nav-cta span {
+      font-size: 1.1rem;
+    }
+
+    /* Mobile nav */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links-mobile {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5rem 0.75rem;
+        display: none;
+        flex-direction: column;
+        gap: 0.4rem;
+        font-size: 0.9rem;
+      }
+
+      .nav-links-mobile a {
+        color: var(--muted);
+      }
+
+      .nav-links-mobile a:hover {
+        color: var(--accent);
+      }
+
+      .nav-links-mobile.show {
+        display: flex;
+      }
+    }
+
+    /* ====== HERO / INTRO ====== */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2.2rem;
+      align-items: center;
+      padding-top: 2.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 1.6rem;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 18px rgba(34, 197, 94, 0.9);
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(to right, var(--accent), #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      max-width: 530px;
+    }
+
+    .hero-list {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-list span {
+      font-size: 1rem;
+      color: var(--accent);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.3rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 0.55rem 1.3rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: none;
+      color: var(--text);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #0f172a;
+      font-weight: 600;
+      box-shadow: 0 15px 35px rgba(8, 47, 73, 0.9);
+    }
+
+    .btn-outline {
+      border-color: var(--accent-soft);
+      background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.2), transparent 65%);
+      color: var(--muted);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(148, 163, 184, 0.7);
+      color: var(--text);
+    }
+
+    .hero-right {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-card {
+      position: relative;
+      width: min(310px, 100%);
+      border-radius: 24px;
+      padding: 1.3rem;
+      background: radial-gradient(circle at top, #111827, #020617 70%);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -30%;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.3), transparent 70%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-avatar {
+      width: 86px;
+      height: 86px;
+      border-radius: 999px;
+      border: 2px solid var(--accent-soft);
+      overflow: hidden;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .hero-role {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-tag {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-meta-item span {
+      display: block;
+    }
+
+    .hero-meta-label {
+      color: var(--muted);
+      font-size: 0.7rem;
+    }
+
+    .hero-meta-value {
+      font-weight: 500;
+    }
+
+    .hero-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .hero-links a {
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.78rem;
+    }
+
+    /* ====== SECTIONS ====== */
+    section {
+      margin-top: 2.8rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      margin-bottom: 0.2rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.9rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      max-width: 620px;
+    }
+
+    .card-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card {
+      border-radius: var(--card-radius);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-soft);
+      padding: 1rem;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(34, 211, 238, 0.13), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .card-badge {
+      font-size: 0.7rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+    }
+
+    .card-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .card-desc {
+      font-size: 0.82rem;
+      color: #e5e7eb;
+      margin-bottom: 0.45rem;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.1rem;
+    }
+
+    .card-tag {
+      font-size: 0.7rem;
+      padding: 0.08rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--muted);
+    }
+
+    /* ABOUT / PERSONAL */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
+      gap: 1.4rem;
+    }
+
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .about-text {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .about-text p + p {
+      margin-top: 0.6rem;
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 0.6rem;
+    }
+
+    .about-list li {
+      margin-bottom: 0.3rem;
+      font-size: 0.84rem;
+    }
+
+    .about-list span {
+      color: var(--accent);
+    }
+
+    .personal-card {
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+
+    .personal-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.35rem;
+    }
+
+    .personal-label {
+      color: var(--muted);
+    }
+
+    .personal-value {
+      color: #e5e7eb;
+      margin-left: 0.7rem;
+    }
+
+    /* SKILLS */
+    .skills-groups {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      .skills-groups {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .skills-groups {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .skills-group-title {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .skills-tag {
+      font-size: 0.74rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+      gap: 1.4rem;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-list {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .contact-list li {
+      margin-bottom: 0.45rem;
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .contact-label {
+      width: 90px;
+      color: var(--muted);
+    }
+
+    .contact-value a {
+      color: var(--accent);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .field label {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .field input,
+    .field textarea {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 0.5rem 0.6rem;
+      color: var(--text);
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.4);
+    }
+
+    .field textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .contact-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 2.2rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      padding-bottom: 0.4rem;
+    }
+
+    footer a {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <!-- ====== NAVBAR ====== -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <div class="logo-badge">T</div>
+        <div class="nav-title">
+          <span class="nav-title-main">Tejendra Purohit</span>
+          <span class="nav-title-sub">Web Developer · Portfolio</span>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#about" class="nav-link active">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#education" class="nav-link">Qualifications</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#personal" class="nav-link">Personal</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#resume" class="nav-link">Resumes</a>
+      </nav>
+
+      <button class="nav-cta" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
+        <span>●</span> Let’s talk
+      </button>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+
+    <!-- Mobile links -->
+    <nav class="nav-links-mobile">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#education" class="nav-link">Qualifications</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#personal" class="nav-link">Personal</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#resume" class="nav-link">Resumes</a>
+    </nav>
+  </header>
+
+  <main class="wrapper">
+    <!-- ====== HERO ====== -->
+    <section class="hero" id="top">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Available for opportunities
+        </div>
+        <h1 class="hero-title">
+          Hi, I’m <span>Tejendra Purohit</span>
+        </h1>
+        <p class="hero-subtitle">
+          Welcome to my portfolio website. Here you’ll find everything about me – my
+          projects, work experience, qualifications, skills, and some personal details.
+          Think of this as my digital resume.
+        </p>
+
+        <ul class="hero-list">
+          <li><span>✓</span> Frontend web development with modern HTML, CSS & JavaScript</li>
+          <li><span>✓</span> Building responsive, user-friendly interfaces</li>
+          <li><span>✓</span> Passionate about clean code & continuous learning</li>
+        </ul>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="document.querySelector('#projects').scrollIntoView({behavior:'smooth'})">
+            View Projects →
+          </button>
+          <button class="btn btn-outline" onclick="document.querySelector('#resume').scrollIntoView({behavior:'smooth'})">
+            Download Resume
+          </button>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="hero-card">
+          <div class="hero-avatar">
+            <!-- Replace src with your actual image link -->
+            <img src="https://avatars.githubusercontent.com/u/00000000?v=4" alt="Tejendra Purohit" />
+          </div>
+          <div class="hero-name">Tejendra Purohit</div>
+          <div class="hero-role">Frontend Web Developer</div>
+
+          <div class="hero-tags">
+            <span class="hero-tag">HTML · CSS · JS</span>
+            <span class="hero-tag">Responsive Design</span>
+            <span class="hero-tag">Git & GitHub</span>
+          </div>
+
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Based in</span>
+              <span class="hero-meta-value">India</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Experience</span>
+              <span class="hero-meta-value">Fresher / Intern</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Role</span>
+              <span class="hero-meta-value">Web Developer</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Status</span>
+              <span class="hero-meta-value">Open to work</span>
+            </div>
+          </div>
+
+          <div class="hero-links">
+            <a href="mailto:your-email@example.com">✉ Email</a>
+            <a href="https://github.com/bluecitydude" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ====== ABOUT ====== -->
+    <section id="about">
+      <div class="section-label">ABOUT</div>
+      <h2 class="section-title">About me</h2>
+      <p class="section-subtitle">
+        A brief introduction about who I am, my background, and what I love to work on.
+      </p>
+
+      <div class="about-grid">
+        <div class="card">
+          <div class="about-text">
+            <p>
+              I’m a passionate web developer who enjoys turning ideas into clean and
+              interactive user interfaces. I focus on writing code that is both readable and
+              maintainable.
+            </p>
+            <p>
+              I’m constantly learning new tools and technologies to stay updated with the
+              modern web ecosystem. I enjoy working on real-world projects that solve
+              practical problems.
+            </p>
+
+            <ul class="about-list">
+              <li><span>•</span> Strengths: Problem-solving, consistency, attention to detail</li>
+              <li><span>•</span> Interests: Web development, open-source, UI/UX</li>
+              <li><span>•</span> Goal: Become a skilled full-stack developer</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card personal-card" id="personal">
+          <div class="card-header">
+            <div class="card-title">Personal details</div>
+          </div>
+          <div class="personal-row">
+            <span class="personal-label">Name</span>
+            <span class="personal-value">Tejendra Purohit</span>
+          </div>
+          <div class="personal-row">
+            <span class="personal-label">Location</span>
+            <span class="personal-value">India</span>
+          </div>
+          <div class="personal-row">
+            <span class="personal-label">Languages</span>
+            <span class="personal-value">English, Hindi (update as needed)</span>
+          </div>
+          <div class="personal-row">
+            <span class="personal-label">Hobbies</span>
+            <span class="personal-value">Coding, learning new tech, reading</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== PROJECTS ====== -->
+    <section id="projects">
+      <div class="section-label">PROJECTS</div>
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">
+        A selection of projects that showcase my skills and learning in web development.
+      </p>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">Personal Portfolio Website</div>
+            <span class="card-badge">Featured</span>
+          </div>
+          <div class="card-meta">HTML · CSS · JavaScript</div>
+          <p class="card-desc">
+            A responsive portfolio website that presents my profile, projects, skills and
+            experience. Designed as a digital resume for recruiters and collaborators.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Responsive Layout</span>
+            <span class="card-tag">Single Page</span>
+            <span class="card-tag">Clean UI</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">Basic Counter App</div>
+            <span class="card-badge">Practice</span>
+          </div>
+          <div class="card-meta">HTML · CSS · JavaScript</div>
+          <p class="card-desc">
+            A simple counter application built to understand DOM manipulation, event handling,
+            and state management in vanilla JavaScript.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">DOM</span>
+            <span class="card-tag">Events</span>
+            <span class="card-tag">Beginner Project</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">More Projects</div>
+            <span class="card-badge">GitHub</span>
+          </div>
+          <div class="card-meta">View all repositories</div>
+          <p class="card-desc">
+            I actively explore new ideas and publish learning projects on GitHub to practice
+            JavaScript, layouts, and UI components.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Learning</span>
+            <span class="card-tag">Experiments</span>
+            <span class="card-tag">Open Source</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====== EXPERIENCE ====== -->
+    <section id="experience">
+      <div class="section-label">EXPERIENCE</div>
+      <h2 class="section-title">Work experience</h2>
+      <p class="section-subtitle">
+        My professional / internship experiences, responsibilities and the technologies I’ve
+        worked with.
+      </p>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Frontend Developer Intern</div>
+              <div class="card-meta">Company Name · Remote · 202X (update)</div>
+            </div>
+            <span class="card-badge">Internship</span>
+          </div>
+          <p class="card-desc">
+            Assisted in building and maintaining responsive pages, fixing UI bugs and
+            collaborating with the team to improve user experience.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">HTML/CSS</span>
+            <span class="card-tag">JavaScript</span>
+            <span class="card-tag">Git</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">Freelance / Practice Work</div>
+            <span class="card-badge">Practice</span>
+          </div>
+          <div class="card-meta">Self-initiated · Ongoing</div>
+          <p class="card-desc">
+            Created practice websites and small web apps to sharpen skills, experiment with
+            layouts and learn modern development practices.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Self Learning</span>
+            <span class="card-tag">Problem Solving</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====== EDUCATION / QUALIFICATIONS ====== -->
+    <section id="education">
+      <div class="section-label">QUALIFICATIONS</div>
+      <h2 class="section-title">Education</h2>
+      <p class="section-subtitle">
+        My academic background and the degrees that shaped my technical foundation.
+      </p>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Bachelor’s in Computer Science</div>
+              <div class="card-meta">College / University Name · Year–Year</div>
+            </div>
+            <span class="card-badge">Degree</span>
+          </div>
+          <p class="card-desc">
+            Learned core concepts including programming fundamentals, data structures,
+            databases, operating systems and computer networks.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Computer Science</span>
+            <span class="card-tag">Programming</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">Additional Learning</div>
+            <span class="card-badge">Courses</span>
+          </div>
+          <div class="card-meta">Online platforms · Ongoing</div>
+          <p class="card-desc">
+            Completed various online courses and tutorials focused on frontend development,
+            JavaScript and modern web practices.
+          </p>
+          <div class="card-tags">
+            <span class="card-tag">Online Learning</span>
+            <span class="card-tag">Web Dev</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====== SKILLS ====== -->
+    <section id="skills">
+      <div class="section-label">SKILLS</div>
+      <h2 class="section-title">Technical skills</h2>
+      <p class="section-subtitle">
+        Tools, technologies and languages I work with while building web applications.
+      </p>
+
+      <div class="card">
+        <div class="skills-groups">
+          <div>
+            <div class="skills-group-title">Frontend</div>
+            <div class="skills-tags">
+              <span class="skills-tag">HTML5</span>
+              <span class="skills-tag">CSS3</span>
+              <span class="skills-tag">JavaScript (ES6+)</span>
+              <span class="skills-tag">Responsive Design</span>
+            </div>
+          </div>
+          <div>
+            <div class="skills-group-title">Tools</div>
+            <div class="skills-tags">
+              <span class="skills-tag">Git & GitHub</span>
+              <span class="skills-tag">VS Code</span>
+              <span class="skills-tag">Chrome DevTools</span>
+            </div>
+          </div>
+          <div>
+            <div class="skills-group-title">Soft Skills</div>
+            <div class="skills-tags">
+              <span class="skills-tag">Problem Solving</span>
+              <span class="skills-tag">Teamwork</span>
+              <span class="skills-tag">Communication</span>
+              <span class="skills-tag">Time Management</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== RESUMES ====== -->
+    <section id="resume">
+      <div class="section-label">RESUMES</div>
+      <h2 class="section-title">Download my resume</h2>
+      <p class="section-subtitle">
+        You can download different versions of my resume based on the role you’re hiring for.
+        (Update the links with your actual resume files.)
+      </p>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">Web Developer Resume</div>
+            <span class="card-badge">PDF</span>
+          </div>
+          <p class="card-desc">
+            Focused on frontend web development skills, projects, and technologies I use.
+          </p>
+          <a href="resume-webdev.pdf" class="card-meta" download>Download resume →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">General Resume</div>
+            <span class="card-badge">PDF</span>
+          </div>
+          <p class="card-desc">
+            Balanced overview of education, skills, projects and experience.
+          </p>
+          <a href="resume-general.pdf" class="card-meta" download>Download resume →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====== CONTACT ====== -->
+    <section id="contact">
+      <div class="section-label">CONTACT</div>
+      <h2 class="section-title">Get in touch</h2>
+      <p class="section-subtitle">
+        Have an opportunity, project idea, or just want to say hello? Feel free to reach out.
+      </p>
+
+      <div class="contact-grid">
+        <div class="card">
+          <ul class="contact-list">
+            <li>
+              <span class="contact-label">Email</span>
+              <span class="contact-value">
+                <a href="mailto:your-email@example.com">your-email@example.com</a>
+              </span>
+            </li>
+            <li>
+              <span class="contact-label">GitHub</span>
+              <span class="contact-value">
+                <a href="https://github.com/bluecitydude" target="_blank" rel="noreferrer">
+                  github.com/bluecitydude
+                </a>
+              </span>
+            </li>
+            <li>
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value">
+                <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+                  linkedin.com/in/your-profile
+                </a>
+              </span>
+            </li>
+            <li>
+              <span class="contact-label">Location</span>
+              <span class="contact-value">India (willing to relocate / remote)</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <form class="contact-form" onsubmit="handleContactSubmit(event)">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="Enter your name" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="Enter your email" required />
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Write your message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send message</button>
+            <p class="contact-note">
+              * This demo form shows an alert on submit. Connect it with a backend or service
+              like Formspree to actually send messages.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> Tejendra Purohit. All rights reserved.</span>
+    <span>Built with HTML, CSS &amp; JavaScript.</span>
+  </footer>
+
+  <!-- ====== SMALL JS FOR NAV & FORM ====== -->
+  <script>
+    // Update year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinksMobile = document.querySelector(".nav-links-mobile");
+
+    navToggle.addEventListener("click", () => {
+      navLinksMobile.classList.toggle("show");
+    });
+
+    // Close mobile nav on link click
+    navLinksMobile.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinksMobile.classList.remove("show");
+      });
+    });
+
+    // Active link on scroll
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-links .nav-link");
+
+    function onScroll() {
+      let current = "";
+      const scrollY = window.pageYOffset;
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 90;
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", onScroll);
+
+    // Contact form handler (demo)
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      alert("Thank you, " + (name || "there") + "! Your message has been recorded (demo).");
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

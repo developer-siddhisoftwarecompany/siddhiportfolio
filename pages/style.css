@@ -16,6 +16,14 @@ header {
     border: none;
 }
 
+.logo img {
+    width: 131px;
+    height: 60px;
+    opacity: 1;
+    top: 50px;
+    left: 100px;
+}
+
 .navbar {
     display: flex;
     justify-content: center;
@@ -73,24 +81,19 @@ header {
 
 .hero {
     text-align: center;
-    padding: 100px 20px;
+    padding: 20px 20px;
 }
 
 
 .hero h1 {
-    background: linear-gradient(177.4deg rgba(255, 255, 255, 0.3) 86.35%);
-    margin-top: -40px;
-    margin-bottom: 20px;
-    font-weight: 600;
     font-family: Montserrat;
+    font-weight: 600;
     font-style: SemiBold;
-    font-size: 100px;
-    line-height: 100%;
+    font-size: 70px;
     letter-spacing: 0%;
-
 }
 
-.hero p {
+.text-p {
     font-family: Montserrat;
     font-weight: 400;
     font-style: Regular;
@@ -98,7 +101,8 @@ header {
     line-height: 100%;
     letter-spacing: 0%;
     text-align: center;
-
+    padding: 20px 320px;
+    line-height: 35px;
 }
 
 .cta-buttons {
@@ -130,9 +134,9 @@ header {
     outline: none;
 }
 
-.arrow-icon img {
-    width: 16px;
-    height: 16px;
+.btn-outline img {
+    width: 40px;
+    height: 20px;
     position: absolute;
 }
 
@@ -271,11 +275,13 @@ header {
 }
 
 .client {
-    width: 80%;
     margin: auto;
-    border-radius: 30px;
-    background-color: #0f1418;
-    padding: 30px 20px;
+    background: url('C:/Users/pc/Desktop/siddhiweb/images/image 5.svg') no-repeat center center;
+    padding: 20px 25px;
+    width: 1200px;
+    height: 335px;
+    opacity: 1;
+    border-radius: 15%;
 }
 
 .client-flex {
@@ -284,10 +290,6 @@ header {
 }
 
 
-.client-service {
-    background: url('https://www.transparenttextures.com/patterns/cartographer.png') repeat;
-    text-align: center;
-}
 
 .content {
     max-width: 1000px;
@@ -300,25 +302,22 @@ h2 {
     color: #ffffff;
 }
 
-p {
-    font-size: 18px;
+.content p {
+    /* font-size: 18px;
     line-height: 1.6;
-    margin-bottom: 30px;
+    margin-bottom: 30px; */
+    font-family: Montserrat;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    line-height: 35px;
+    letter-spacing: 0%;
+
 }
 
-.start-btn {
-    background-color: #2196f3;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.start-btn:hover {
-    background-color: #1976d2;
+.content img {
+    width: 269px;
+    height: 72px;
 }
 
 .scroll-box {
@@ -326,7 +325,7 @@ p {
     height: 150px;
     overflow: hidden;
     position: relative;
-    margin-top: 30px;
+    margin-top: 80px;
 }
 
 .scroll-track {
@@ -412,11 +411,38 @@ p {
     margin-top: 30px;
 }
 
-
 .quote-box {
     display: none;
 }
 
+
+.scroll-wrapper {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.scroll-content {
+    display: inline-flex;
+    align-items: center;
+    gap: 60px;
+    animation: scroll 12s linear infinite;
+}
+
+.item {
+    color: #cfd3e2;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.95;
+    padding: 8px 20px;
+    border-radius: 50px;
+    backdrop-filter: blur(6px);
+}
 
 .scroll-wrapper {
     width: 100%;
@@ -453,181 +479,5 @@ p {
 
     100% {
         transform: translateX(-50%);
-    }
-}
-
-@media only screen and (max-width: 600px) {
-
-    .navbar {
-        max-width: 100%;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .btn-primary {
-        display: none;
-    }
-
-    .hero {
-        padding: 30px 20px;
-    }
-
-    .hero h1 {
-        font-size: 30px;
-    }
-
-    .hero p {
-
-        font-size: 15px;
-    }
-
-    .cta-buttons button {
-        margin: 10px 0;
-        padding: 8px 16px;
-        font-size: 14px;
-        width: 30%;
-        border-radius: 50px 50px;
-    }
-
-    .btn-outline {
-        display: none;
-    }
-
-    .work-section {
-        flex-direction: column;
-        gap: 50px;
-    }
-
-    .img-flex {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .Build-flex {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .footer {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .end-footer {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-
-    .scroll-items li {
-        font-size: 18px;
-    }
-
-    .work2 {
-        display: none;
-    }
-
-    .about-section h3 {
-        font-size: 18px;
-    }
-
-    .about-section p {
-        font-size: 14px;
-        text-align: left;
-        padding: 5px;
-        margin-left: 15px;
-        line-height: 20px;
-    }
-
-    .image-container {
-        width: 95%;
-        margin: auto;
-    }
-
-    .img-flex {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-    }
-
-    .quote-box {
-        width: 320px;
-        background: #121027;
-        border: 1px solid #3e3e77;
-        border-radius: 8px;
-        padding: 25px;
-        box-shadow: 0 0 10px rgba(66, 66, 150, 0.4);
-        margin: auto;
-        display: block;
-    }
-
-
-
-    .quote-box h2 {
-        margin-bottom: 10px;
-        font-size: 20px;
-        color: #fff;
-    }
-
-    .quote-box p {
-        font-size: 13px;
-        color: #bbb;
-        line-height: 1.5;
-        margin-bottom: 20px;
-    }
-
-    form input,
-    form textarea {
-        width: 100%;
-        margin-bottom: 12px;
-        padding: 10px 12px;
-        background: transparent;
-        border: 1px solid #555;
-        border-radius: 6px;
-        color: white;
-        font-size: 14px;
-        outline: none;
-    }
-
-    form input:focus,
-    form textarea:focus {
-        border-color: #6c63ff;
-    }
-
-    button {
-        width: 100%;
-        padding: 10px;
-        background: #5b5cff;
-        border: none;
-        border-radius: 6px;
-        color: white;
-        font-weight: 500;
-        cursor: pointer;
-        transition: 0.3s ease;
-    }
-
-    button:hover {
-        background: #4445ff;
-    }
-
-
-
-    header {
-        height: 150px;
-    }
-
-    .foot {
-        display: flex;
-        justify-content: center;
-        gap: 100px;
-        align-items: center;
-    }
-
-    .foot li {
-        list-style-type: none;
-        font-size: 20px;
     }
 }

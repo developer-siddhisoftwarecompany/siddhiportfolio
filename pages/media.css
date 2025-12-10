@@ -1,0 +1,266 @@
+/* ===================================
+   GLOBAL FIX
+=================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* ===================================
+   HEADER & HERO FIX
+=================================== */
+
+header {
+    width: 100%;
+}
+
+.btn-primary{
+    display: none;
+}
+.hero {
+    padding: 20px;
+    text-align: left;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 6vw, 70px);
+    line-height: 1.2;
+}
+
+.text-p {
+    padding: 10px 0 !important;
+    font-size: 16px;
+    line-height: 24px;
+    width: 100%;
+}
+
+/* ===================================
+   NAVBAR FIX
+=================================== */
+
+.navbar {
+    width: 100%;
+    gap: 0 !important;
+    justify-content: space-between;
+}
+
+.nav-links {
+    width: auto !important;
+    display: none;
+}
+
+/* ===================================
+   WORK SECTION FIX
+=================================== */
+
+.work-section {
+    padding: 30px 15px;
+    gap: 40px !important;
+    flex-wrap: wrap;
+}
+
+.work-section ul {
+    padding-left: 15px;
+}
+
+.work2 {
+    width: 100%;
+}
+
+/* ===================================
+   ABOUT IMAGE GRID FIX
+=================================== */
+
+.img-flex {
+    flex-wrap: wrap;
+}
+
+.image-container {
+    width: 100%;
+}
+
+/* ===================================
+   CLIENT FIX
+=================================== */
+
+.client {
+    display: none
+}
+
+
+/* ===================================
+   BUILD SECTION FIX
+=================================== */
+
+.Build {
+    display: none
+}
+
+/* ===================================
+   FOOTER FIX
+=================================== */
+
+.foot-inn{
+    display: none
+}
+.footer-section {
+    width: 100%;
+    padding: 20px;
+}
+
+.footer {
+    flex-direction: column;
+    gap: 30px;
+}
+
+.end-footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+
+/* ===================================
+   MOBILE BREAKPOINT
+=================================== */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn-primary {
+        width: 140px;
+    }
+
+    .cta-buttons button {
+        width: 100%;
+        margin: 8px 0;
+    }
+
+    .scroll-content {
+        gap: 25px;
+    }
+
+    .scroll-item {
+        font-size: 16px;
+    }
+
+    .content img {
+        width: 100%;
+    }
+
+    .scroll-box {
+        margin: auto;
+    }
+}
+
+/* ======================
+   QUOTE BOX RESPONSIVE
+====================== */
+
+.quote-box {
+    max-width: 550px;
+    margin: 50px auto;
+    padding: 25px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 16px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    display: block;
+}
+
+.quote-box h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.quote-box p {
+    font-size: 15px;
+    margin-bottom: 20px;
+    line-height: 22px;
+    color: #ccc;
+    display: block;
+}
+
+/* FORM LAYOUT */
+.quote-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* INPUT STYLE */
+.quote-box input,
+.quote-box textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: #131722;
+    color: white;
+}
+
+/* BUTTON */
+.quote-box button {
+    margin-top: 10px;
+    padding: 12px;
+    background: #5b7cff;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.quote-box button:hover {
+    background: #3f5efb;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 600px) {
+
+    .quote-box {
+        width: 92%;
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    .quote-box h2 {
+        font-size: 22px;
+    }
+
+    .quote-box p {
+        font-size: 14px;
+    }
+
+    .quote-box input,
+    .quote-box textarea {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .quote-box button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
